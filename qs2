@@ -1,0 +1,24 @@
+const fs = require('fs');
+
+function readFileContents(filePath, callback) {
+ 
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      
+      callback(err, null);
+    } else {
+     
+      callback(null, data);
+    }
+  });
+}
+
+
+const filePath = 'path/to/your/textfile.txt';
+readFileContents(filePath, (err, contents) => {
+  if (err) {
+    console.error('Error reading file:', err);
+  } else {
+    console.log('File contents:', contents);
+  }
+});
